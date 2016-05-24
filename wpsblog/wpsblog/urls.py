@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.contrib import admin
 
-from django.http.response import HttpResponse
+from wpsblog.views import home, room
 
 # MVC
 # M_Model: DB ( Data ) & Business Logic ( * )
@@ -12,11 +12,9 @@ from django.http.response import HttpResponse
 # Model -> 더 무겁게
 # Controller -> 더 가볍게 ( 즉, 기능이 Controller -> Model..)
 
-def home(request):
-    return HTTPResponse("hello world")
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', home),
+    url(r'^rooms/(?P<room_id>\d+)/$', room),
 ]
