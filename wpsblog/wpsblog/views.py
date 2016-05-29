@@ -6,9 +6,9 @@ from django.template import loader
 
 def home(request):
     return render(
-      requests,
-      "home.html"
-      {"site_name": "wpd blog"},
+        request,
+        "home.html",
+        {"site_name": "wps blog"},
     )
 
 def room(request, room_id):
@@ -23,18 +23,15 @@ def news(request):
    search = request.GET.get("search") # title 에 search 가 포함되어 있는가? 
    
    response = resquests.get("https://watcha.net/home/news.json?page=1&per=50")
-   news_dict = response.json() #-> requests.json 
+   news_dict = json.loads(response.text)
    news_list = news_dict.get("news")
-
-   #news_items_list = news_dict.get("news")     
-   #from IPython import embed; embed()
 
    if search:
        news_list = list(filter(
            lambda news: search in news.get('title'),
            news_list,
        ))
-
+   
    return render(
         request,
         "news.html",
