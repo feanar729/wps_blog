@@ -5,12 +5,10 @@ from django.http.response import HttpResponse
 from django.template import loader
 
 def home(request):
-    template = loader.get_template("home.html")
-    return HttpResponse(
-        template.render(
-            {"site_name": "wps blog"},
-            request,
-        )
+    return render(
+      requests,
+      "home.html"
+      {"site_name": "wpd blog"},
     )
 
 def room(request, room_id):
@@ -26,25 +24,19 @@ def news(request):
    
    response = resquests.get("https://watcha.net/home/news.json?page=1&per=50")
    news_dict = response.json() #-> requests.json 
-   
+   news_list = news_dict.get("news")
+
    #news_items_list = news_dict.get("news")     
    #from IPython import embed; embed()
 
-   content = "<h1>News</h1>" +\
-             "<p>This is news page.</p>" +\
-             "".join([
-             	"<h2>{title}</h2><img src={image_src}<p>{content}</p>".format(
-             		title = news.get('title'),
-                	image_src = news.get('image'),
-			content = news.get('content'),
-		)
-             	for news
-             	in news_dict["news"]
-             
-             ])
+   if search:
+       news_list = list(filter(
+           lambda news: search in news.get('title'),
+           news_list,
+       ))
 
-   return HttpResponse(
-      #response.content
-      #content_type="application/json" #watcha view
-      content
+   return render(
+        request,
+        "news.html",
+        {"news_list": news_list},
    )
