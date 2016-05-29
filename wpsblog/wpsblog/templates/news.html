@@ -1,4 +1,8 @@
-{% include "header.html" %}
+{% extends "base.html" %}
+
+{% block title %}News{% endblock %}
+
+{% block content %}
 <h1>News</h1>
 <p>This is news page.</p>
 <p>{{ news_list|length }} 개의 영화 정보가 표시됩니다.</p>
@@ -13,4 +17,4 @@
   {% endfor %}
 </ul>
 
-{% include "footer.html" %}
+{% endblock %}

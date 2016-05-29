@@ -1,11 +1,17 @@
+import json
 import requests
 
 from django.http.response import HttpResponse
-
+from django.template import loader
 
 def home(request):
-    return HttpResponse("<h1>hello world</h1><p>This is blog</p>")
-
+    template = loader.get_template("home.html")
+    return HttpResponse(
+        template.render(
+            {"site_name": "wps blog"},
+            request,
+        )
+    )
 
 def room(request, room_id):
     url = "http://api.zigbang.com/v1/items?detail=true&item_ids=" + room_id
