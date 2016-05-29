@@ -2,7 +2,7 @@ import json
 import requests
 
 from django.http.response import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 def home(request):
     return render(

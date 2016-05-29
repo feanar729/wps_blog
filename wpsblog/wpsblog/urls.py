@@ -22,7 +22,6 @@ urlpatterns = [
 
     url(r'^$', home),
     url(r'^rooms/(?P<room_id>\d+)/$', room),
-
     url(r'^news/$', news),
     
 ]
