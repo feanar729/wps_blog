@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.contrib import admin
 
-from wpsblog.views import home, room, news
+from wpsblog.views import *
 
 # MVC
 # M_Model: DB ( Data ) & Business Logic ( * )
@@ -25,3 +25,12 @@ urlpatterns = [
     url(r'^news/$', news, name="news"),
     
 ]
+
+# 1. about page (.../about, .../us , .../about-us/ )
+
+# 정책
+# 2. 이용약관 페이지 ( .../terms/ )
+# 3. 개인정보 취급방침 페이지 ( .../privacy/ ) 
+# 4. 법적고지와 책임의 한계 ( .../disclaimer/ )
+
+
