@@ -24,6 +24,11 @@ urlpatterns = [
     url(r'^rooms/(?P<room_id>\d+)/$', room, name="room"),
     url(r'^news/$', news, name="news"),
     
+    url(r'^about/us/$', about, name="about"),
+    url(r'^policy/terms/$', terms, name="terms"),
+    url(r'^policy/privacy/$', privacy, name="privacy")
+    url(r'^policy/disclaimer/$', disclaimer, name="disclaimer"),
+
 ]
 
 # 1. about page (.../about, .../us , .../about-us/ )
