@@ -21,5 +21,5 @@ def disclaimer(request):
     return render(
         request,
         "policy/disclaimer.html",
-        {],
+        {},
     )
