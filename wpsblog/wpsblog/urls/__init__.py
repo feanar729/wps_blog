@@ -11,6 +11,5 @@ urlpatterns = [
     url(r'^about/us/$', about, name="about"),
     url(r'^rooms/(?P<room_id>\d+)/$', room, name="room"),
     url(r'^news/$', news, name="news"),
-    
     url(r'^policy/', include("wpsblog.urls.policy", namespace="policy")),
-    ]
+]
