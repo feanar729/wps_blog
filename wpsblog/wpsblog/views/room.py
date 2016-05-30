@@ -8,5 +8,5 @@ def room(request, room_id):
     response = requests.get(url)
     return HttpResponse(
         response.content,
-	content_type="application/json",
+        content_type="application/json",
     )
