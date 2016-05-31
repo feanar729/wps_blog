@@ -91,3 +91,5 @@ ENV/
 # Database
 db.sqlite3
 
+# Django migrations - ignore only on development
+migrations
