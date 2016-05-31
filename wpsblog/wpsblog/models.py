@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 
 class Post(models.Model):
@@ -10,5 +11,10 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-# Posts list( /posts/ ) -> 이 주소로 들어갔을 때 <h1>Posts list</h1>으로 나오게 해보기...
-# Posts Detail ( /posts/:id )
+    def get_absolute_url(self):
+        return reverse(
+           "post-detail",
+           kwargs={
+               "post_id": self.id,
+           }
+        )
