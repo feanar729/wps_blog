@@ -1,6 +1,5 @@
 import os
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
@@ -9,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.pa
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+d=8ezbyuq6g8%2ht6g&6zao_2z9z-d5uugb#z%a1uh7riy5kd'
+SECRET_KEY = '%n3xo!b2lh!xr9f(^5w4&yo^c8)8)6fk9e-qjgs+#$8fbs!(qc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -26,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'wpsblog',
 ]
 

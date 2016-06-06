@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 
-def home(request):
+def new(request):
     return render(
         request,
-        "home.html",
-        {"site_name": "wps blog"},
+        "posts/new.html",
+        {},
     )
