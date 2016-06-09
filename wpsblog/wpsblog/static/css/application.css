@@ -4,3 +4,7 @@ header{
 footer{
   background-color: yellow;
 }
+ul li img{
+  width: 300px;
+  height: 200px;
+}
