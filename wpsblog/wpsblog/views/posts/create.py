@@ -12,7 +12,7 @@ def create(request):
         user=request.user,
         title=title,
         content=content,
-		image=image,
+        image=image,
     )
 
     return redirect(post)

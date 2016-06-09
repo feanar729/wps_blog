@@ -6,6 +6,6 @@ from django.contrib.auth.decorators import login_required
 def mypage(request):
     return render(
         request,
-		"auth/mypage.html",
-		{},
+        "auth/mypage.html",
+        {},
     )

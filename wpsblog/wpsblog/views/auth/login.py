@@ -9,7 +9,7 @@ def login(request):
         password = request.POST.get("password")
 
         user = authenticate(
-            username=username, 
+            username=username,
             password=password,
         )
 
