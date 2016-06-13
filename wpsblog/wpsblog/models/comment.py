@@ -4,8 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Comment(models.Model):
-    
-	user = models.ForeignKey(User)
+    user = models.ForeignKey(User)
     post = models.ForeignKey("Post")
 
     content = models.TextField()
