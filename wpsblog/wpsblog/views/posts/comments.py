@@ -6,7 +6,8 @@ def comments_create(request, post_id):
     content = request.POST.get("content")
     post = Post.objects.get(id=post_id)
     comment = post.comment_set.create(
-         content=content,
+        user=request.user,
+        content=content,
     )
     return redirect(comment)
 
