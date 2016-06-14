@@ -12,7 +12,7 @@ class BitlinkCreateView(View):
             "bitly/new.html",
             context={},
         )
-    
+
     def post(self, request, *args, **kwargs):
         original_url = request.POST.get("original_url")
 
