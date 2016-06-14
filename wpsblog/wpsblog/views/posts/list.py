@@ -2,7 +2,7 @@ from django.views.generic.list import ListView
 
 from wpsblog.models import Post
 
-from .base import PostBaseView 
+from .base import PostBaseView
 
 
 class PostListView(PostBaseView, ListView):
