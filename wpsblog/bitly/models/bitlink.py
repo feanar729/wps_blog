@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.db.models.signals import post_save
 
 
 class Bitlink(models.Model):
@@ -27,3 +28,12 @@ class Bitlink(models.Model):
                 "shorten_hash": self.shorten_hash,
             }
         )
+
+
+def post_save_bitlink(sender, instance, created, **kwargs):
+    if created:
+        hashids = Hashids(salt="awesome bitlink", min_length=4)
+        instance.shorten_hash = hashids.encode(instance.id)
+        instance.save()
+
+post_save.connect(post_save_bitlink, sender=Bitlink)
