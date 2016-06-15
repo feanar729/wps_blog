@@ -1,26 +1,32 @@
 from django.test import TestCase
-from django.contrib.auth.models import User
-
-from bitly.models.bitlink import Bitlink
+from django.core.urlresolvers import reverse
 
 
-class BitlinkModelTestCase(TestCase):
+class HomeViewTestCase(TestCase):
 
-    def test_bitlink_should_have_shorten_hash(self):
-        # Create test user
-        test_username = "test_username"
-        test_password = "test_password"
-        test_user = User.objects.create_user(
-            username=test_username,
-            password=test_password,
+    def setUp(self):
+        self.response = self.client.get(reverse("home"))
+
+    def test_home_view_should_return_200(self):
+        self.assertEqual(
+            self.response.status_code,
+            200,
         )
 
-        # Create test bitlink
-        test_original_url = "http://www.example.com"
-        bitlink = Bitlink.objects.create(
-            user=test_user,
-            original_url=test_original_url,
+
+class PricingViewTestCase(TestCase):
+
+    def setUp(self):
+        self.response = self.client.get(reverse("pricing"))
+
+    def test_pricing_view_should_return_200(self):
+        self.assertEqual(
+            self.response.status_code,
+            200,
         )
-        self.assertTrue(
-            bitlink.shorten_hash,
+
+    def test_pricing_view_should_have_good_title(self):
+        self.assertContains(
+            self.response,
+            "Pricing Table",
         )
