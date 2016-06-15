@@ -11,5 +11,3 @@ script:
     - python wpsblog/manage.py test users posts bitly wpsblog -v2
 notifications:
     slack: fcwps2:ZNZ2SDSQw6SYKYthu8ax8ho2
-
-
