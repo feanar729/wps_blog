@@ -6,6 +6,7 @@ from bitly.models.bitlink import Bitlink
 
 
 class BitlinkCreateView(View):
+
     def get(self, request, *args, **kwargs):
         return render(
             request,
