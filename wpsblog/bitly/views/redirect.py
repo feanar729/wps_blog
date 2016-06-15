@@ -5,7 +5,8 @@ from bitly.models.bitlink import Bitlink
 
 
 class BitlinkRedirectView(View):
-    def get():
+
+    def get(self, request, *args, **kwargs):
 
         bitlink = Bitlink.objects.get(
             shorten_hash=kwargs.get("shorten_hash"),
@@ -18,4 +19,4 @@ class BitlinkRedirectView(View):
             http_meta_json=str(request.META),
         )
 
-        return redirect(bitlink.origin_url)
+        return redirect(bitlink.original_url)

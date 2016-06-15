@@ -19,7 +19,7 @@ class BitlinkCreateView(View):
         original_url = request.POST.get("original_url")
 
         bitlink = request.user.bitlink_set.create(
-            orignal_url=original_url,
+            original_url=original_url,
         )
 
         hashids = Hashids(salt="awesome bitlink", min_length=4)
