@@ -24,4 +24,9 @@ class SignupView(View):
             email=email,
         )
 
+        user.userprofile.phonenumber = phonenumber
+        user.userprofile.address = address
+        user.userprofile.is_phonenumber_exist = True
+        user.userprofile.save()
+
         return redirect(reverse("auth:login"))
